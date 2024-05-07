@@ -18,7 +18,7 @@ function divide(num1, num2){
     return num1/num2;
 }
 
-let num1 = '', num2 = '', op = '';
+let num1 = 0, num2 = 0, op = '';
 
 function operate(op, num1, num2){
     switch (op) {
@@ -78,18 +78,36 @@ buttons.forEach((button) => {
 
 })
 
+secondOpFlag = false;
+
 function opBtns(sym){
-    display.textContent = '';
-    op = sym;
+    if(num1 === 0){
+        // do nothing
+    }else if(num2 !== 0 && op !== 0){
+        display.textContent = Math.round(100*operate(op, num1, num2))/100;
+        num1 = Number(display.textContent);
+        op = sym;
+        num2 = 0;
+        secondOpFlag = true;
+    }
+    else{
+        display.textContent = '';
+        op = sym;
+    }
 }
 
 function numBtns(sym){
+    if(num1 === 0 || secondOpFlag){
+        display.textContent = '';
+        secondOpFlag = false;
+    }
+
+    display.textContent += sym;
+
     if(op === ''){
-        num1 += sym;
-        display.textContent += sym;
+        num1 = Number(display.textContent);
     }else{
-        num2 += sym;
-        display.textContent += sym;
+        num2 = Number(display.textContent);
     }
 }
 
@@ -102,6 +120,9 @@ function clearBtn(){
 
 function equalBtn(){
     if(num1 !== '' && num2 !== '' && op !== ''){
-        display.textContent = operate(op, num1, num2);
+        display.textContent = Math.round(100*operate(op, num1, num2))/100;
+        num1 = 0;
+        op = '';
+        num2 = 0;
     }
 }
