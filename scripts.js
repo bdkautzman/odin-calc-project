@@ -3,7 +3,7 @@ let secondOpFlag = false; // Flags when a calculation is using multip operators
 let disp = ''; // Calculator display vlue
 let num1 = null, num2 = null, op = ''; // User input numbers and operators
 
-// Backend functions
+// Backend operation functions
 function add(num1, num2){
     return num1 + num2;
 }
@@ -47,7 +47,7 @@ function operate(op, num1, num2){
 
 // Frontend functions
 const buttons = document.querySelectorAll('button');
-const display = document.querySelector('#display');
+const display = document.querySelector('#displayText');
 
 buttons.forEach((button) => {
     switch (button.textContent) {

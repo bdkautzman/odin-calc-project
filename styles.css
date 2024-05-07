@@ -1,9 +1,60 @@
-button {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+* {
+    box-sizing: border-box;
+}
+
+#outer {
+    width: fit-content;
+    border-color: rgb(83, 83, 83);
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
 }
 
 #display {
     height: 50px;
+    width: 230px;
+    margin: 5px;
+    border-color: rgb(83, 83, 83);
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+#displayText {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.row {
+    width: fit-content;
+    display: flex;
+}
+
+button {
+    padding: 0px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    border-color: rgb(83, 83, 83);
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.numeric {
+    background-color: rgb(230, 230, 230);
+}
+
+.operator {
+    background-color: rgb(155, 155, 155);
+}
+
+#equal, #clear {
+    width: 110px;
+}
+
+#zero, #add {
+    margin-left: 65px;
 }
